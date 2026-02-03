@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Forever 💞</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ffe6ef, #ffffff);
+      font-family: "Poppins", Arial, sans-serif;
+      text-align: center;
+    }
+
+    .container {
+      background: white;
+      padding: 35px 25px;
+      border-radius: 24px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      max-width: 360px;
+      width: 90%;
+    }
+
+    h1 {
+      color: #ff5c8a;
+      margin-bottom: 10px;
+      font-size: 26px;
+    }
+
+    p {
+      color: #555;
+      margin-bottom: 25px;
+      font-size: 15px;
+    }
+
+    .buttons {
+      position: relative;
+      height: 130px;
+    }
+
+    button {
+      padding: 12px 28px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    #yesBtn {
+      background-color: #ff5c8a;
+      color: white;
+    }
+
+    #yesBtn:hover {
+      background-color: #ff3366;
+    }
+
+    #noBtn {
+      background-color: #dddddd;
+      color: #444444;
+      position: absolute;
+      top: 65px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .result {
+      display: none;
+      margin-top: 25px;
+    }
+
+    .result img {
+      width: 100%;
+      border-radius: 16px;
+    }
+
+    .result h2 {
+      color: #ff5c8a;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Will you stay with me forever ♾️</h1>
+    <p>No pressure… just my whole heart asking 💗</p>
+
+    <div class="buttons">
+      <button id="yesBtn">Yes, always 💞</button>
+      <button id="noBtn">No 😶</button>
+    </div>
+
+    <div class="result" id="result">
+      <img src="https://i.imgflip.com/7q9d6n.jpg" alt="Good choice">
+      <h2>Good choice ❤️</h2>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const result = document.getElementById("result");
+
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * 220 - 110;
+      const y = Math.random() * 90 - 45;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    yesBtn.addEventListener("click", () => {
+      result.style.display = "block";
+      yesBtn.style.display = "none";
+      noBtn.style.display = "none";
+    });
+  </script>
+
+</body>
+</html>
+
