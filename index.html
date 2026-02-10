@@ -1,1 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Forever ♾️</title>
 
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #ffd6e8;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .bg-text {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      font-size: 22px;
+      opacity: 0.12;
+      color: #d63384;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: center;
+      pointer-events: none;
+    }
+
+    .bg-text span {
+      margin: 12px;
+      white-space: nowrap;
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      top: 28vh;
+      padding: 0 12px;
+    }
+
+    h1 {
+      color: #b0005a;
+      margin-bottom: 30px;
+      font-size: 26px;
+    }
+
+    button {
+      padding: 14px 28px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    #yes {
+      background: #ff4d88;
+      color: white;
+    }
+
+    #no {
+      background: white;
+      color: #ff4d88;
+      position: absolute;
+    }
+
+    .media {
+      display: none;
+      margin-top: 20px;
+    }
+
+    video, img {
+      width: 90%;
+      max-width: 360px;
+      border-radius: 18px;
+      margin: 12px 0;
+    }
+
+    .heart {
+      position: fixed;
+      font-size: 22px;
+      animation: float 4s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes float {
+      from { transform: translateY(100vh); opacity: 1; }
+      to { transform: translateY(-10vh); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="bg-text" id="bg"></div>
+
+  <div class="container" id="questionBox">
+    <h1>Will u stay with me forever? ♾️💗</h1>
+    <button id="yes">Yes</button>
+    <button id="no">No</button>
+  </div>
+
+  <div class="container media" id="mediaBox">
+    <h1>Good choice ❤️🥹</h1>
+
+    <video src="video1.mp4" autoplay loop muted playsinline></video>
+    <video src="video2.mp4" autoplay loop muted playsinline></video>
+
+    <img src="photo1.jpg" />
+    <img src="photo2.jpg" />
+
+    <video src="video3.mp4" autoplay loop muted playsinline></video>
+    <video src="video4.mp4" autoplay loop muted playsinline></video>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById('no');
+    const yesBtn = document.getElementById('yes');
+    const mediaBox = document.getElementById('mediaBox');
+    const questionBox = document.getElementById('questionBox');
+    const bg = document.getElementById('bg');
+
+    for (let i = 0; i < 120; i++) {
+      const span = document.createElement('span');
+      span.innerText = 'I lovee u Pavitra 💗';
+      bg.appendChild(span);
+    }
+
+    function moveNo() {
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 50);
+      noBtn.style.left = x + 'px';
+      noBtn.style.top = y + 'px';
+    }
+
+    noBtn.addEventListener('mouseover', moveNo);
+    noBtn.addEventListener('touchstart', moveNo);
+
+    yesBtn.addEventListener('click', () => {
+      questionBox.style.display = 'none';
+      mediaBox.style.display = 'block';
+
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.innerText = '💗';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (3 + Math.random() * 3) + 's';
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 5000);
+      }
+    });
+  </script>
+
+</body>
+</html>
